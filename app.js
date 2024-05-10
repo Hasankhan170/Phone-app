@@ -66,7 +66,8 @@ const products = [
 
 ]
 
-const div = document.querySelector(',container');
+let arr = [];
+const div = document.querySelector('.container');
 
 function randarArray(){
     for(let i = 0; i < products.length ; i++){
@@ -74,15 +75,25 @@ function randarArray(){
         <div class="card" style="width: 18rem;">
           <div class="card-body bg-dark text-light">
              <h5 class="card-title">${products[i].brand}</h5>
-             <p class="card-text">$${products[i].model}</p>
-             <p class="card-text">${products[i].ram}</p>
-             <p class="card-text">${products[i].rom}</p>
-             <p class="card-text">${products[i].camera}</p>
-             <p class="card-text">${products[i].price}</p>
+             <h6 class="card-text">Model : ${products[i].model}</h6>
+             <h6 class="card-text">RAM : ${products[i].ram}</h6>
+             <h6 class="card-text">ROM : ${products[i].rom}</h6>
+             <h6 class="card-text">Camera : ${products[i].camera}</h6>
+             <h6 class="card-text">$ : ${products[i].price}</h6>
             <button onclick = "addToCard(${i})" class="btn btn-primary">Add to card</button>
     </div>
- </div>
-        
-        `
+ </div>`
+
     }
+}
+randarArray();
+
+function addToCard(index){
+    if(arr.includes(products[index])){
+        products[index].quantity += 1;
+    }else{
+        products[index].quantity = 1;
+        arr.push(products[index]);
+    }
+    console.log(arr)
 }
