@@ -69,5 +69,20 @@ const products = [
 const div = document.querySelector(',container');
 
 function randarArray(){
-    
+    for(let i = 0; i < products.length ; i++){
+        div.innerHTML += `
+        <div class="card" style="width: 18rem;">
+          <div class="card-body bg-dark text-light">
+             <h5 class="card-title">${products[i].brand}</h5>
+             <p class="card-text">$${products[i].model}</p>
+             <p class="card-text">${products[i].ram}</p>
+             <p class="card-text">${products[i].rom}</p>
+             <p class="card-text">${products[i].camera}</p>
+             <p class="card-text">${products[i].price}</p>
+            <button onclick = "addToCard(${i})" class="btn btn-primary">Add to card</button>
+    </div>
+ </div>
+        
+        `
+    }
 }
