@@ -66,7 +66,14 @@ const products = [
 
 ]
 
-let arr = [];
+let arr;
+let items = JSON.parse(localStorage.getItem('cartitems'));
+if(items === null){
+    arr = [];
+}else{
+    arr = items;
+}
+
 const div = document.querySelector('.container');
 
 function randarArray(){
@@ -96,4 +103,10 @@ function addToCard(index){
         arr.push(products[index]);
     }
     console.log(arr)
+}
+
+function productCheck(){
+    console.log('hello')
+    localStorage.setItem('cartitems' , JSON.stringify(arr))
+    window.location = 'cart.html';
 }
