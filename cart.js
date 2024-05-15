@@ -50,31 +50,28 @@ function updateCardsQuantity(){
         total = total + (cardItems[i].price * cardItems[i].quantity)
     }
     totalAmount.innerHTML = `Total Amount : ${total}`
-    randarItems();
 }
 updateCardsQuantity()
 
 function add(i){
     cardItems[i].quantity += 1;
     localStorage.setItem('cartitems', JSON.stringify(cardItems));
-    updateCardsQuantity()
     location.reload()
+    updateCardsQuantity()
 }
 
 function miniz(i){
     if(cardItems[i].quantity <= 1){
         cardItems.splice(i, 1);
         localStorage.setItem('cartitems', JSON.stringify(cardItems));
-        updateCardsQuantity()
         location.reload()
         return;
     }else{
         cardItems[i].quantity -= 1;
         localStorage.setItem('cartitems', JSON.stringify(cardItems));
-        updateCardsQuantity()
         location.reload()
     }
-   
+    updateCardsQuantity()
 }
 
 
